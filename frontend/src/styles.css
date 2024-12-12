@@ -1,0 +1,132 @@
+body {
+  font-family: 'Arial', sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #eef2f7; /* Softer background */
+  color: #333;
+  height: 100vh;
+}
+
+.App {
+  max-width: 1200px;
+  margin: 20px auto; /* Centered with top margin */
+  padding: 25px;
+  min-height: calc(100vh - 40px); /* Maintain height minus margins */
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  background: #ffffff;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15); /* Enhanced shadow for depth */
+  border-radius: 12px; /* Rounded corners */
+  border: 1px solid #e0e0e0; /* Subtle border */
+}
+
+h1 {
+  text-align: center;
+  color: #0056d2; /* Stronger highlight color */
+  font-size: 2.5rem;
+  margin-bottom: 25px;
+  font-weight: 600;
+}
+
+.filters {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.filters button {
+  margin: 5px;
+  padding: 12px 20px;
+  background-color: #0056d2;
+  color: #ffffff;
+  border: none;
+  border-radius: 25px; /* Pill-shaped buttons */
+  cursor: pointer;
+  font-size: 15px;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.2); /* More prominent shadow */
+}
+
+.filters button:hover {
+  background-color: #003c99;
+  transform: translateY(-3px); /* Subtle lift on hover */
+}
+
+.filters .active-filter {
+  background-color: #003c99;
+  font-weight: bold;
+}
+
+.dashboard-container {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  margin-top: 20px;
+  flex: 1;
+}
+
+@media (min-width: 768px) {
+  .dashboard-container {
+    flex-direction: row;
+    gap: 25px;
+  }
+}
+
+.robot-list {
+  flex: 1;
+  max-height: 450px;
+  overflow-y: auto;
+  border: 1px solid #d9d9d9; /* Softer border color */
+  border-radius: 10px;
+  padding: 20px;
+  background-color: #ffffff;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Slightly elevated shadow */
+}
+
+.robot-list ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+.robot-list li {
+  padding: 15px 12px;
+  border-bottom: 1px solid #e6e6e6;
+  border-radius: 8px; /* Subtle rounding for list items */
+  transition: background-color 0.3s ease;
+}
+
+.robot-list li:hover {
+  background-color: #f9f9f9; /* Highlight on hover */
+}
+
+.robot-list li:last-child {
+  border-bottom: none;
+}
+
+.robot-list .offline {
+  color: #ff4d4f; /* Bright red for offline */
+  font-weight: bold;
+}
+
+.robot-list .low-battery {
+  color: #ffa502; /* Bright orange for low battery */
+  font-weight: bold;
+}
+
+.robot-map {
+  height: 450px;
+  flex: 2;
+  width: 100%;
+  border: 1px solid #d9d9d9; /* Softer border */
+  border-radius: 12px; /* Slightly more rounded map */
+  background-color: #e6edf3; /* Light background for map area */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+  .robot-list, .robot-map {
+    height: 350px; /* Reduced height on smaller screens */
+  }
+}

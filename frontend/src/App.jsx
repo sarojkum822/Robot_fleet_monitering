@@ -35,7 +35,7 @@ const App = () => {
     if (filter === 'offline') return !robot['Online/Offline'];
     if (filter === 'low-battery') return robot['Battery Percentage'] < 20;
     return true;
-  });
+  }).slice(0, 10); // Limit to max 10 results
 
   return (
     <div className="App">

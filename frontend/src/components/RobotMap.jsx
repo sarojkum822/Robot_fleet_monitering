@@ -1,10 +1,30 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
 import 'leaflet/dist/leaflet.css';
 
-
-const RobotMap = ({ robots }) => {
+const RobotMap = () => {
+  const [robots, setRobots] = useState([]);
+  const [ws, setWs] = useState(null);
   const defaultPosition = [34.946804, -1.265231]; // Fallback position
+
+  useEffect(() => {
+    // Open WebSocket connection to the backend
+    const socket = new WebSocket('wss://robot-fleet-monitering.onrender.com');
+    
+    socket.onmessage = (event) => {
+      const updatedRobots = JSON.parse(event.data);
+      setRobots(updatedRobots); // Update the robot list with real-time data
+    };
+
+    setWs(socket);
+
+    // Cleanup WebSocket connection on component unmount
+    return () => {
+      if (ws) {
+        ws.close();
+      }
+    };
+  }, [ws]);
 
   return (
     <div className="robot-map">

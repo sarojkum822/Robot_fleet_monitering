@@ -15,7 +15,7 @@ app.get('/api/robots', (req, res) => {
 
 // WebSocket server for real-time updates
 const server = app.listen(PORT, () => {
-  console.log(`Backend running on http://localhost:${PORT}`);
+  console.log(`Backend running on https://robot-fleet-monitering.onrender.com:${PORT}`);
 });
 
 const wss = new WebSocket.Server({ server });
